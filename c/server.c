@@ -20,7 +20,7 @@ int main(int argc, char const *argv[])
     int addrlen = sizeof(address);
     memset(&address, 0, addrlen);         // clear struct for compatibility and pad sockaddr_in to size of sockaddr
     address.sin_family = AF_INET;         // Address format internet, should match that used in socket creation
-    address.sin_addr.s_addr = INADDR_ANY; // this holds the actual IP address
+    address.sin_addr.s_addr = INADDR_ANY; // Bind ANY IP address or network interface via specified port
     address.sin_port = htons(PORT);       // Convert port number from host byte order to short network byte order
 
     // Creating socket file descriptor - this uses TCP here (stream-based connection)
@@ -39,7 +39,7 @@ int main(int argc, char const *argv[])
         exit(EXIT_FAILURE);
     }
 
-    // Bind the socket
+    // Bind the socket to specified address (which is *not* the address that packets will be sent to)
     if (bind(server_fd, (struct sockaddr *)&address,
              sizeof(address)) < 0)
     {
