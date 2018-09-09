@@ -1,9 +1,11 @@
 // Client side C/C++ program to demonstrate Socket programming 
+
 #include <stdio.h> 
 #include <sys/socket.h> 
 #include <stdlib.h> 
 #include <netinet/in.h> 
 #include <string.h> 
+
 #define PORT 8080 
    
 int main(int argc, char const *argv[]) 
@@ -13,6 +15,8 @@ int main(int argc, char const *argv[])
     struct sockaddr_in serv_addr; 
     char *hello = "Hello from client"; 
     char buffer[1024] = {0}; 
+
+    // Create socket
     if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) 
     { 
         printf("\n Socket creation error \n"); 
@@ -31,6 +35,7 @@ int main(int argc, char const *argv[])
         return -1; 
     } 
    
+    // Note client does not need to use `bind` as automatically bound
     if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) 
     { 
         printf("\nConnection Failed \n"); 
