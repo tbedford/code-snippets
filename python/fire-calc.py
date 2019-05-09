@@ -7,7 +7,7 @@ def calc_gross_required (monthly):
     return int(gross)
 
 print("---\nCore: %d\nLump sum required: %d\n---" % (core, lump))
-print("Gross\tNet\tSaving\tYears")
+print("Gross\tNet\tSaving\tYears\tFireFactor")
 for m in range(1500, 6000, 500):
     saving = m - core
-    print("%d\t%d\t%d\t%d" % (calc_gross_required(m), m, saving, int(300000/(saving * 12))))
+    print("%d\t%d\t%d\t%d\t%.1f" % (calc_gross_required(m), m, saving, int(300000/(saving * 12)), m/core))
