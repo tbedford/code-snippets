@@ -7,3 +7,7 @@ echo $JWT
 ```
 
 And continue...
+
+``` shellsession
+$ echo $JWT
+```
