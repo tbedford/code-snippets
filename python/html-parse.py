@@ -14,15 +14,15 @@ World</p>
 </html>
 '''
 
-links = []
-
 class MyHTMLParser(HTMLParser):
+
+    links = []
 
     def handle_starttag(self, tag, attrs):
         if tag == 'a':
             for a in attrs:
                 if a[0] == 'href':
-                    links.append(a[1])
+                    self.links.append(a[1])
             
     def handle_endtag(self, tag):
         #print("End tag --> ", tag)
@@ -34,7 +34,7 @@ class MyHTMLParser(HTMLParser):
     
 parser = MyHTMLParser()
 parser.feed(html)
-print(links)
+print(parser.links)
 
 
         
