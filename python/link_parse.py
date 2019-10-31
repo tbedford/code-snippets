@@ -10,6 +10,7 @@ s5 = "../../articles/doom.html"
 s6 = "/doom.html"
 s7 = "https://api.nexmo.com/beta/audit/events?search_text=text&date_from=2018-06-01&date_to=2019-11-01"
 s8 = "https://tonys-notebook.com/"
+s9 = "https://twitter.com/tonytechwriter"
 
 obj = urlparse(s7)
 print(obj)
@@ -27,5 +28,8 @@ link = urljoin(s8, s5)
 print(link)
 
 link = urljoin(s8, s2)
+print(link)
+
+link = urljoin(s8, s9)
 print(link)
 
