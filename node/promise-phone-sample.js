@@ -26,6 +26,7 @@ var showOff = function (phone) {
 
 // call our promise
 var askMom = function () {
+    console.log('before asking Mom'); // log before
   willIGetNewPhone
     .then(showOff)
     .then(function (fulfilled) {
@@ -34,6 +35,7 @@ var askMom = function () {
     .catch(function (error) {
       console.log(error.message);
     });
+    console.log('after asking mom'); 
 };
 
 askMom();
