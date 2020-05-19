@@ -21,3 +21,7 @@ let p2 = new Promise( (resolve, reject) => {
 p1.then( resolve => { console.log(resolve) }).then(resolve => p2)
     .then( resolve => { console.log(resolve) })
     .catch( reject => console.error(reject) )
+
+let f1 = (x) => { console.log (x) }
+
+f1('Fred')
