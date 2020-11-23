@@ -6,7 +6,7 @@ const options = {
     path: '/jwt',
     method: 'GET',
     headers: {  // will fail if you don't set this
-        'User-Agent': 'IoT client v0.1'
+        'User-Agent': 'IoT client v0.1',
     }
 }
 
