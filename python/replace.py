@@ -10,11 +10,15 @@ and even more https://support.ably.com/.
  https://support.ably.com/solution/articles/new?folder_id=3000009
 https://support.ably.com/123-hello-world. 34
 https://support.ably.com/123-hello-world, 12
-https://support.ably.com/123-hello-world hi
+**https://support.ably.com/123-hello-world** hi
+this is (https://support.ably.com/123-hello-world) hi
+this is https://support.ably.com/123-hello-world<br/> hi
+this is https://support.ably.com/123-hello-world:
+text
 '''
 
 # Link type 1
-regex = r'([\s.,])'
+regex = r'([\s.,*<:)])'
 link1 = '(https://support.ably.com/)' + regex
 link2 = "https://knowledge.ably.com/"
 x = re.sub(link1, link2 + r'\2', source, re.MULTILINE)
