@@ -14,11 +14,12 @@ https://support.ably.com/123-hello-world, 12
 this is (https://support.ably.com/123-hello-world) hi
 this is https://support.ably.com/123-hello-world<br/> hi
 this is https://support.ably.com/123-hello-world:
+this is https://support.ably.com/123-hello-world'
 text
 '''
 
 # Link type 1
-regex = r'([\s.,*<:)])'
+regex = r'([\s.,*<:)"\'])'
 link1 = '(https://support.ably.com/)' + regex
 link2 = "https://knowledge.ably.com/"
 x = re.sub(link1, link2 + r'\2', source, re.MULTILINE)
