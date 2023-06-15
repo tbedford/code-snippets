@@ -10,9 +10,10 @@ from dotenv import load_dotenv
 load_dotenv()
 token = os.getenv("SDK_TOKEN")
 
-def get_cpu_load():
+def get_sys_info():
     cpu_load = psutil.cpu_percent(interval=1)
-    return cpu_load
+    memory = psutil.virtual_memory()
+    return cpu_load, memory.percent
 
 # Obtain client library token from portal
 client = qx.QuixStreamingClient(token)
@@ -27,12 +28,14 @@ stream.timeseries.buffer.time_span_in_milliseconds = 100   # Send data in 100 ms
 def main():
     try:
         while True:
-            cpu_load = get_cpu_load()
+            cpu_load, memory_util = get_sys_info()
             print(f"CPU Load: {cpu_load}%")
+            print(f"Memory utilization: {memory_util}%")
             stream.timeseries \
                   .buffer \
                   .add_timestamp(datetime.datetime.utcnow()) \
                   .add_value("CPU_Load", cpu_load) \
+                  .add_value("Memory_Utilization", memory_util) \
                   .publish()
     except KeyboardInterrupt:
         print("Closing stream")
