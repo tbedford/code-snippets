@@ -1,3 +1,4 @@
+## NOTE: this assumes you have a timestamp as the first column in your CSV data
 # pip install quixstreams
 import quixstreams as qx
 import time
